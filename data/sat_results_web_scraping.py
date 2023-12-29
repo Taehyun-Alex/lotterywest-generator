@@ -10,15 +10,15 @@ if response.status_code == 200:
 
     ul_elements = soup.find_all("ul", class_="balls")
 
-    results_list = []
+    saturday_results_list = []
 
     for ul_element in ul_elements:
         li_elements = ul_element.find_all("li", class_="result medium saturday-lotto ball dark ball")
 
         numbers = [int(li.text.strip()) for li in li_elements]
-        results_list.append(numbers)
+        saturday_results_list.append(numbers)
 
-    print(results_list)
+    # print(saturday_results_list)
 
 else:
     print(f"Failed to retrieve the page. Status code: {response.status_code}")
