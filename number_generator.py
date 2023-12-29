@@ -1,7 +1,8 @@
 import random
 
 from data.wed_results import wed_results_list
-from data.sat_results import sat_results_list
+# from data.sat_results import sat_results_list
+from data.sat_results_web_scraping import results_list
 
 num_count_dict = {}
 total_count = 0
@@ -23,7 +24,7 @@ if answer == "Wednesday":
             else:
                 num_count_dict[num] = 1
 elif answer == "Saturday":
-    for week_result in sat_results_list:
+    for week_result in results_list:
         for num in week_result:
             total_count += 1
             if num in num_count_dict:
@@ -39,7 +40,7 @@ print(target_list)
 
 for num, count in sorted(num_count_dict.items()):
     percentage = (count / total_count * 100)
-    # print(f"{num} : {round(percentage, 2)}")
+    print(f"{num} : {round(percentage, 2)}")
 
 
 sorted_items = sorted(num_count_dict.items(), key=lambda x: x[1], reverse=True)
