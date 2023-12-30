@@ -5,11 +5,11 @@ from data.sat_results_web_scraping import saturday_results_list
 
 num_count_dict = {}
 total_count = 0
-num_of_pull = 8
+num_of_pull = 5
 num_of_random_games = 3
 num_of_random_numbers = 3
 num_of_winning_numbers = 6
-num_of_loop = 100 # you can change this to infinity to see how many slikpik you'll need
+num_of_loop = 10000 # you can change this to infinity to see how many slikpik you'll need
 target_list = []
 
 # This part asks for the day
@@ -63,10 +63,10 @@ for i in range(num_of_loop):
     print(f"Generated List {i + 1}: {sorted_random_numbers}")
 
     # uncomment this for breaking when you want to find out how many tries it takes.
-    # common_elements = set(sorted_random_numbers).intersection(target_list)
-    # if len(common_elements) >= 4:
-    #     print(f"Found a match with {len(common_elements)} common numbers at iteration {i + 1}.")
-    #     break
+    common_elements = set(sorted_random_numbers).intersection(target_list)
+    if len(common_elements) >= 5:
+        print(f"Found a match with {len(common_elements)} common numbers at iteration {i + 1}.")
+        break
 # so far, it returns 20 lists of generated lotto.
 # how do I match it with the result?
 
